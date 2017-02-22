@@ -2,7 +2,6 @@ package re.cretfi.se.secretfireqr;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,6 +11,11 @@ import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+
+/*
+    Used the following tutorial to get QR scanning to work.
+    https://code.tutsplus.com/tutorials/android-sdk-create-a-barcode-reader--mobile-17162
+ */
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
     private Button scanBtn;
@@ -36,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         }
     }
 
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if (scanningResult != null) {
